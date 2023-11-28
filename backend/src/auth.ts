@@ -34,6 +34,8 @@ export const createUserAuthClient = (accessToken?: string) =>
 		persistSession: true,
 		storage: inMemoryStorageFactory(),
 		headers: {
+			//Bearer => 헤더의 인증 scheme을 식별하여 그 뒤에 오는 토큰은 사용자 인증용이라는 걸 인식
+			//주로 OAuth 2.0 등에서 자주 사용
 			Authorization: `Bearer ${accessToken}`,
 		},
 	})

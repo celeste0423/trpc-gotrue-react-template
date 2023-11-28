@@ -23,8 +23,12 @@ function _interop_require_default(obj) {
 const fastifyServer = (0, _fastify1.default)({
     maxParamLength: 5000
 });
+//cors에서 모든 origin 허용
 fastifyServer.register(_cors.default, {
+    //orign함수는 cors설정하는데 이용됨 : 모든 출처에서의 요청을 허용하도록 설정
+    //cors정책을 완화하여 다른 도메인에서의 클라이언트 요청을 허용함
     origin: (origin, callback)=>{
+        //callback함수 : (에러, 허용여부)를 담아서 보냄
         // if (!origin) return callback(null, true)
         return callback(null, true);
     }

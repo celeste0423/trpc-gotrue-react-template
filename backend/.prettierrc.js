@@ -1,5 +1,5 @@
 module.exports = {
-	endOfLine: 'lf',
+	endOfLine: 'auto',
 	semi: false,
 	singleQuote: true,
 	tabWidth: 2,
@@ -7,4 +7,3 @@ module.exports = {
 	trailingComma: 'all',
 	arrowParens: 'avoid',
 }
-

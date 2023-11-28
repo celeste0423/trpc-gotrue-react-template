@@ -12,10 +12,14 @@ const HelloPage: React.FC = () => {
     console.log(user?.email);
     console.log(user);
   }, []);
+  //useQuery() => input을 서버에 넣어서 데이터를 반환
+  //반환하는 형식은 {data, error, isLoading}
   // const user = useGuardedUser()
-  const { data } = trpc.user.sampleRoute.useQuery({
-    sample: "this is a sample text",
-  });
+  //라우터는 하위로 내려갈 수록 .test.testRoute... 식으로 들어감
+  const { data, error, isLoading } = trpc.test.testRoute.useQuery();
+  // const { data, error, isLoading } = trpc.user.sampleRoute.useQuery({
+  //   sample: "sub",
+  // });
 
   return (
     <div>
@@ -23,6 +27,7 @@ const HelloPage: React.FC = () => {
         Hello World!
       </Text>
       <Text>{data}</Text>
+      <Text>{isLoading}</Text>
 
       <Button
         onClick={async () => await authClient.signOut()}

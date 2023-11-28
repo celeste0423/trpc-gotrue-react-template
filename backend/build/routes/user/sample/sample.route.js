@@ -14,7 +14,24 @@ const keyPhraseRoute = (0, _trpc.router)({
     sampleRoute: _trpc.userProcedure.input(_zod.z.object({
         sample: _zod.z.string()
     })).query(async ({ input: { sample }, ctx: { datasource, jwt } })=>{
-        return 'Hello World' + sample + ' ' + jwt.sub;
+        if (sample == 'email') {
+            return '이메일은 ' + jwt.email;
+        } else if (sample == 'sub') {
+            return '토큰은 ' + jwt.sub;
+        } else {
+            return '입력값이 없습니다';
+        }
+    // return (
+    // 	'Hello World(sample route)' +
+    // 	' ' +
+    // 	sample +
+    // 	' ' +
+    // 	jwt.sub +
+    // 	'\n' +
+    // 	jwt.email +
+    // 	'\n' +
+    // 	jwt.role
+    // )
     })
 });
 const _default = keyPhraseRoute;

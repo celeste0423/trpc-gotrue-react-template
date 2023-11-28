@@ -17,16 +17,22 @@ function _interop_require_default(obj) {
     };
 }
 const createContext = async (options)=>{
+    //datasource => env 타입
     const datasource = _datasource.MBDataSource;
     if (!datasource.isInitialized) {
+        //datasource 초기화 진행
         await datasource.initialize();
     }
+    //HTTP 헤더에서 jwt토큰을 추출
     const authorization = options.req.headers.authorization;
     const accessToken = authorization?.match(/Bearer (.+)/)?.[1];
     try {
+        //추출한 토큰 검증
         if (!accessToken) {
+            //토큰 없음
             throw new Error('token does not exist');
         }
+        //토큰 타입 변환
         const token = _jsonwebtoken.default.verify(accessToken, process.env.GOTRUE_JWT_SECRET);
         if (token.role === 'revenuecat_admin') {
             return {

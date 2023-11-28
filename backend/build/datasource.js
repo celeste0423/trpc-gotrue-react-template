@@ -1,3 +1,4 @@
+//.env의 환경변수들을 현재 환경으로 로드함
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true

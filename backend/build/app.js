@@ -1,8 +1,10 @@
+//앱의 라우팅 정보 정의
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-Object.defineProperty(exports, "default", {
+Object.defineProperty(exports, //타입과 라우터 export
+"default", {
     enumerable: true,
     get: function() {
         return _default;

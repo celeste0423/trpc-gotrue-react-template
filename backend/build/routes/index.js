@@ -1,3 +1,4 @@
+//zod: 입력값의 유효성 검사 => 입력값의 형식을 제한함으로써 다른 타입이 들어오지 못하도록 함
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -8,8 +9,8 @@ Object.defineProperty(exports, "default", {
         return _default;
     }
 });
-const _zod = require("zod");
 const _trpc = require("../trpc");
+const _test = /*#__PURE__*/ _interop_require_default(require("./test"));
 const _user = /*#__PURE__*/ _interop_require_default(require("./user"));
 function _interop_require_default(obj) {
     return obj && obj.__esModule ? obj : {
@@ -18,11 +19,7 @@ function _interop_require_default(obj) {
 }
 const routes = (0, _trpc.router)({
     user: _user.default,
-    test: (0, _trpc.router)({
-        testRoute: _trpc.publicProcedure.input(_zod.z.undefined()).query(async ({ ctx: { datasource, jwt } })=>{
-            return 'happy';
-        })
-    })
+    test: _test.default
 });
 const _default = routes;
 

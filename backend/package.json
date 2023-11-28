@@ -7,7 +7,7 @@
 		"build:types": "tsc",
 		"build:lambda": "ts-node ./scripts/build.lambda",
 		"watch:build": "swc ./src  --config-file ./.swcrc --out-dir ./build --watch",
-		"watch:run": "nodemon --enable-source-maps --watch \"./build/**/*\" -e js ./build/listen.fastify.js",
+		"watch:run": "nodemon --enable-source-maps --watch \"./build/**/*\" -e js ./build/listen.js",
 		"dev": "concurrently -r \"npm:watch:run\" \"npm:watch:build\""
 	},
 	"installConfig": {
@@ -52,8 +52,10 @@
 		"@supabase/gotrue-js": "^2.4.2",
 		"@trpc/server": "^10.32.0",
 		"axios": "1.2.2",
+		"concurrently": "^8.2.2",
 		"dayjs": "^1.11.7",
 		"dotenv": "^16.0.3",
+		"express": "^4.18.2",
 		"fastify": "^4.18.0",
 		"jsonwebtoken": "^9.0.0",
 		"luxon": "^3.2.1",

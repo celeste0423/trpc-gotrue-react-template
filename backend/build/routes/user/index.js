@@ -9,13 +9,14 @@ Object.defineProperty(exports, "default", {
     }
 });
 const _trpc = require("../../trpc");
+const _emailroute = /*#__PURE__*/ _interop_require_default(require("./email/email.route"));
 const _sampleroute = /*#__PURE__*/ _interop_require_default(require("./sample/sample.route"));
 function _interop_require_default(obj) {
     return obj && obj.__esModule ? obj : {
         default: obj
     };
 }
-const userRoutes = (0, _trpc.mergeRouters)(_sampleroute.default);
+const userRoutes = (0, _trpc.mergeRouters)(_sampleroute.default, _emailroute.default);
 const _default = userRoutes;
 
 //# sourceMappingURL=index.js.map
